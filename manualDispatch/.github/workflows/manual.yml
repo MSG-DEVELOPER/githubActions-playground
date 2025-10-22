@@ -1,0 +1,11 @@
+name: 01 - Manual Dispatch Minimal
+
+on:
+  workflow_dispatch: # Esto hace que el workflow solo se ejecute manualmente
+
+jobs:
+  say_hello:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Saludo
+      run: echo "Hola! Este workflow se ha lanzado manualmente."
