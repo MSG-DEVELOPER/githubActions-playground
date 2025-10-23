@@ -1,0 +1,16 @@
+name: 02-Manual Dispatch con Input
+
+on: 
+  workflow_dispatch:
+    inputs:
+      nombre:
+        description: "Introduce tu nombre"
+        required: true
+        default: "Marcos"
+
+jobs:
+  say_hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Saludo personal
+        run: echo "Hola  ${{ github.event.inputs.nombre }} ! Este workflow se ha lanzado manualmente  "
