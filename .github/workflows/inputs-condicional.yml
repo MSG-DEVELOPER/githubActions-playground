@@ -1,4 +1,4 @@
-name: 03-Inputs con condición     # nombre del workflow
+name: 03-Inputs con condición # nombre del workflow
 
 on:
   workflow_dispatch:
@@ -17,13 +17,13 @@ on:
           - despedir
 
 jobs:
-  mensaje:    # nombre del job
-  runs-on: ubuntu-latest
-  steps:
-    - name: Saludo    # nombre del Step. Solo se pone (name:) al step , al workflow y al job de pone el nombre directo
-      if: ${{ github.event.inputs.accion == 'saludar' }}
-      run: echo "Hola ${{ github.event.inputs.nombre }} 👋 ¡Espero que tengas un gran día!"
+  mensaje: # nombre del job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Saludo # nombre del Step. Solo se pone (name:) al step , al workflow y al job de pone el nombre directo
+        if: ${{ github.event.inputs.accion == 'saludar' }}
+        run: echo "Hola ${{ github.event.inputs.nombre }} 👋 ¡Espero que tengas un gran día!"
 
-    - name: Despedida
-      if: ${{ github.event.inputs.accion == 'despedir' }}
-      run: echo "Adiós ${{ github.event.inputs.nombre }} 👋 ¡Nos vemos pronto!"
+      - name: Despedida
+        if: ${{ github.event.inputs.accion == 'despedir' }}
+        run: echo "Adiós ${{ github.event.inputs.nombre }} 👋 ¡Nos vemos pronto!"
