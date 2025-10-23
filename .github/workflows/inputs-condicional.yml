@@ -1,0 +1,29 @@
+name: 03-Inputs con condición     # nombre del workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      nombre:
+        description: "Como te llamas?"
+        required: true
+        default: "React developer en 2025"
+      accion:
+        description: "Que quieres hacer?"
+        required: true
+        default: "saludar"
+        type: choice
+        options:
+          - saludar
+          - despedir
+
+jobs:
+  mensaje:    # nombre del job
+  runs-on: ubuntu-latest
+  steps:
+    - name: Saludo    # nombre del Step. Solo se pone (name:) al step , al workflow y al job de pone el nombre directo
+      if: ${{ github.event.inputs.accion == 'saludar' }}
+      run: echo "Hola ${{ github.event.inputs.nombre }} 👋 ¡Espero que tengas un gran día!"
+
+    - name: Despedida
+      if: ${{ github.event.inputs.accion == 'despedir' }}
+      run: echo "Adiós ${{ github.event.inputs.nombre }} 👋 ¡Nos vemos pronto!"
