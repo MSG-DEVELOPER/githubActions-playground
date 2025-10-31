@@ -1,0 +1,18 @@
+name: 05 - Demo Artifacts
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Crear archivo de salida
+        run: echo "Este es un archivo generado por el workflow" > resultado.txt
+
+
+      - name: Subir Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: resultado
+          path: resultado.txt
