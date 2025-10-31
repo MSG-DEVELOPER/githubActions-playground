@@ -3,22 +3,21 @@ name: Demo Env
 on:
   push:
 
-env:   # Variables a nivel de workflow
+env: # Variables a nivel de workflow
   GLOBAL_GREETING: "Hola desde el workflow"
 
 jobs:
-
   test-env:
     runs-on: ubuntu-latest
     env:
-      GREETING: "Hola Github desde env a nivel de job"   # Variable a nivel de job
+      GREETING: "Hola Github desde env a nivel de job" # Variable a nivel de job
     steps:
       - name: Mostrar Variable
         run: echo $GREETING
 
       - name: Step con env propio
         env:
-          GREETING2: "Hola Github desde env a nivel de step"   # Variable a nivel de step
+          GREETING2: "Hola Github desde env a nivel de step" # Variable a nivel de step
         run: echo $GREETING2
 
   anotherJob:

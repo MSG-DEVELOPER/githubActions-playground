@@ -1,0 +1,29 @@
+name: 06 - Full Demo Artifacts
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Crear archivo de salida
+        run: echo "Este archivo fue creado por el job build" > resultado.txt
+
+      - name: Subir Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: resultado
+          path: resultado.txt
+
+  use-artifact:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Descargar Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: resultado
+
+      - name: Mostrar contenido del archivo
+        run: cat resultado/resultado.txt
