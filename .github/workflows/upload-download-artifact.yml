@@ -26,4 +26,4 @@ jobs:
           name: resultado
 
       - name: Mostrar contenido del archivo
-        run: cat resultado/resultado.txt
+        run: cat resultado.txt
