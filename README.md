@@ -183,6 +183,51 @@ jobs:
 
 ---
 
+### 1️⃣ Full Demo Artifacts
+
+**Description:**  
+This workflow demonstrates how to create, upload, and download artifacts between jobs within the same workflow.
+The first job (build) generates a text file and uploads it as an artifact, while the second job (use-artifact) downloads that artifact and displays its content.
+
+**How to trigger:**  
+1. Push any commit to the repository to run the workflow.
+2. Once finished, you can check the Artifacts section in the Actions tab to download the file manually.
+
+
+```yml
+name: 06 - Full Demo Artifacts
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Crear archivo de salida
+        run: echo "Este archivo fue creado por el job build" > resultado.txt
+
+      - name: Subir Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: resultado
+          path: resultado.txt
+
+  use-artifact:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Descargar Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: resultado
+
+      - name: Mostrar contenido del archivo
+        run: cat resultado.txt
+
+```
+---
+
 
 ## ⭐ Continuous Updates
 
