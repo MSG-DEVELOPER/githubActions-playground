@@ -1,0 +1,32 @@
+name: 07 - Cache Dependencies
+
+on:
+  workflow_dispatch: #se ejecuta manuelamente
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.job
+        uses: actions/setup-node@v4
+        with:
+          node-version:20
+
+      - name: cache npm Dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+             ${{ runner.os }}-node-
+
+      - name: Install Dependencies
+        run: npm Install
+
+      - name: Build project
+        run: echo  "✅ Build successful!"
+
