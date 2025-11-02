@@ -1,0 +1,16 @@
+name: 08 - Reusable Workflow
+
+on:
+  workflow_call:
+    inputs:
+      mensaje:
+        description: "Mensaje personalizado"
+        required: true
+        type: string
+
+jobs:
+  say-message:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mostrar mensage
+        run: echo "El mensage es   ${{ inputs.mensaje }}"

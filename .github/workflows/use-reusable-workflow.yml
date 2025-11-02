@@ -1,0 +1,10 @@
+name: 09 - Call Reusable Workflow
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  use-reusable:
+    uses: ./.github/workflows/reusable-workflow.yml
+    with:
+      mensaje: "hola desde el workflow principal"
