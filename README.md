@@ -8,7 +8,7 @@ Welcome to my **GitHub Actions Playground**, a repository designed to experiment
 
 ## Workflows
 
-### 1️⃣ 01 - Manual Dispatch Minimal
+### 1️⃣ Manual Dispatch Minimal
 
 **Description:**  
 This is the simplest example of a manually triggered workflow. It demonstrates how to use `workflow_dispatch` to run a job on demand.
@@ -33,7 +33,7 @@ jobs:
 ```
 ---
 
-### 2️⃣ 02 - Manual Dispatch with Input
+### 2️⃣ Manual Dispatch with Input
 
 **Description:**  
 This workflow shows how to accept user input when triggering a workflow manually. In this case, it asks for your name and prints a personalized greeting.
@@ -63,7 +63,7 @@ jobs:
 ```
 ---
 
-### 3️⃣ 03 - Inputs with Condition
+### 3️⃣ Inputs with Condition
 
 **Description:**  
 This workflow demonstrates **conditional execution** of steps using inputs. Depending on the `accion` input, it will either greet (`saludar`) or say goodbye (`despedir`) to the user.
@@ -107,7 +107,7 @@ jobs:
 ```
 ---
 
-### 4️⃣ Demo Env - Environment Variables
+### 4️⃣ Environment Variables
 
 **Description:**  
 This workflow illustrates the use of **environment variables** at different levels: workflow, job, and step. It prints messages showing how variables are scoped and inherited.
@@ -149,7 +149,7 @@ jobs:
 
 ---
 
-### 5️⃣ 05 - Upload Demo Artifacts
+### 5️⃣ Upload Artifacts
 
 **Description:**  
 This workflow shows how to generate a file and upload it as an artifact, a way to store and share files generated during workflow execution.
@@ -183,7 +183,7 @@ jobs:
 
 ---
 
-### 1️⃣ Full Demo Artifacts
+### 6️⃣ Upload & Download Artifacts
 
 **Description:**  
 This workflow demonstrates how to create, upload, and download artifacts between jobs within the same workflow.
