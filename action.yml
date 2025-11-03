@@ -1,0 +1,14 @@
+name: "saludo action"
+description: "una accion de ejemplo que saluda usando JS"
+author: "Marcos Sole"
+runs:
+  using: "node16"
+  main: "index.js"
+inputs:
+  nombre:
+    description: "nombre a saludar"
+    required: false
+    default: "Mundo"
+outputs:
+  mensaje: 
+    description: "Mensaje generado por la accion"
